@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latitude vs Temperature</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+		<link rel="stylesheet" type="text/css" href="bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="#">Explore the Data:</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+		  
+			<div class="collapse navbar-collapse" id="navbarColor02">
+			  <ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+				  <a class="nav-link" href="index.html">Home
+					<span class="sr-only">(current)</span>
+				  </a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="Map.html">Map It Out</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="Viz1.html">Viz1</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="Viz2.html">Viz2</a>
+				</li>
+				<li class="nav-item dropdown">
+				  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+				  <div class="dropdown-menu">
+					<a class="dropdown-item" href="#">Action</a>
+					<a class="dropdown-item" href="#">Another action</a>
+					<a class="dropdown-item" href="#">Something else here</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Separated link</a>
+				  </div>
+				</li>
+			  </ul>
+			  <form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="text" placeholder="Search">
+				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+			  </form>
+			</div>
+		  </nav>
+			<div class="container h-100 d-flex h-100 flex-column">
+				<div class="row py-3 flex-fill d-flex">
+					<div class="col-md-3 order-2 align-self-end border" id="sidebar-large">
+						<div class="sticky top">
+				<div class="row">
+		<center><h3>Visualizations</h3></center>
+		</div>
+		<div class="row">
+            	<a href="MaxTemp.html">
+           		<figure>
+               		 <img src="https://github.com/veronicahamilton88/web-design-challenge/blob/master/Assets/Fig1.png?raw=true" alt="Max Temp" width=250px>
+                		<figcaption>Fig.1 - Latitude vs Max Temp</figcaption>
+              		</figure>
+              	</a>
+          	</div>
+
+   		<div class="row">
+            	<a href="Humidity.html">
+           		<figure>
+                	<img src="https://github.com/veronicahamilton88/web-design-challenge/blob/master/Assets/Fig2.png?raw=true" alt="Humidity" width=250px>
+                		<figcaption>Fig.2 - Latitude vs Humidity</figcaption>
+              		</figure>
+		</a>
+          	</div>
+    		<div class="row">
+            	<a href="Cloudiness.html">
+            		<figure>
+                	<img src="https://github.com/veronicahamilton88/web-design-challenge/blob/master/Assets/Fig3.png?raw=true" alt="Cloudiness" width=250px>
+                	<figcaption>Fig.2 - Latitude vs Cloudiness</figcaption>
+              		</figure>
+		</a>
+          	</div>
+    		<div class="row">
+            	<a href="Windspeed.html">
+            		<figure>
+                	<img src="https://github.com/veronicahamilton88/web-design-challenge/blob/master/Assets/Fig4.png?raw=true" alt="Windspeed" width=250px>
+                	<figcaption>Fig.2 - Latitude vs Windspeed</figcaption>
+              		</figure>
+            	</a>
+          </div>     
+                </div>
+            </div>
+            <div class="col border" id="main">
+  		<div class="row">      
+    			<div class="col-md-12">
+			<h1>Income</h1><BR>
+				<center>
+			<img src="https://github.com/veronicahamilton88/web-design-challenge/blob/master/Assets/Fig1.png?raw=true" width=700 alt="MaxTemp">
+	
+       				<p>
+						Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+					   </p>
+					</center>
+      			</div>
+  		  </div>
+    	</div>
+    </div>
+</div>
+
+</body>
+</html>
