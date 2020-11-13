@@ -1,30 +1,53 @@
-# app.py to run this code run: python app.py
-from flask import Flask, render_template, request, jsonify
-app = Flask(__name__)
-
-@app.route('/')
-def respond():
+from sqlalchemy import create_engine
+import psycopg2
+import config
+import pandas as pd 
+import os 
+from flask import Flask, jsonify, send_from_directory
+from flask_cors import CORS, cross_origin
+app = Flask(__name__, static_url_path="",static_folder="")
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+conn_string = os.environ['DATABASE_URL']
+@app.route("/home")
+def home():
     return app.send_static_file('index.html')
-    # # Retrieve the name from url parameter
-    # name = request.args.get("name", None)
+rows = cur.fetchall()
+print(rows)
+print("\nShow me the databases:\n")
+for row in rows:
+    print("   ", row[9])
+conn = create_engine(conn_string)
+pd.read_csv("Resources/Census_clean/clean_census_2011.csv").to_sql("",conn)
+pd.read_csv("Resources/Census_clean/clean_census_2012.csv").to_sql("potholes",conn)
+pd.read_csv("Resources/Census_clean/clean_census_2013.csv").to_sql("potholes",conn)
+pd.read_csv("Resources/Census_clean/clean_census_20114.csv").to_sql("potholes",conn)
+pd.read_csv("Resources/Census_clean/clean_census_2015.csv").to_sql("potholes",conn)
+pd.read_csv("Resources/Medicare_clean/clean_pc_state_rates_2011.csv").to_sql("potholes",conn)
+pd.read_csv("Resources/Medicare_clean/clean_pc_state_rates_2012.csv").to_sql("potholes",conn)
+pd.read_csv("Resources/Medicare_clean/clean_pc_state_rates_2013.csv").to_sql("potholes",conn)
+pd.read_csv("Resources/Medicare_clean/clean_pc_state_rates_2014.csv").to_sql("potholes",conn)
+pd.read_csv("Resources/Medicare_clean/clean_pc_state_rates_2015.csv").to_sql("potholes",conn)
+pd.read_csv("Resources/Pollution_clean_2011.csv").to_sql("potholes",conn)
+pd.read_csv("Resources/Pollution_clean_2012.csv").to_sql("potholes",conn)
+pd.read_csv("Resources/Pollution_clean_2013.csv").to_sql("potholes",conn)
+pd.read_csv("Resources/Pollution_clean_2014.csv").to_sql("potholes",conn)
+pd.read_csv("Resources/Pollution_clean_2015.csv").to_sql("potholes",conn)
 
-    # # For debugging
-    # print(f"got name {name}")
-
-    # response = {}
-
-    # # Check if user sent a name at all
-    # if not name:
-    #     response["ERROR"] = "no name found, please send a name."
-    # # Check if the user entered a number not a name
-    # elif str(name).isdigit():
-    #     response["ERROR"] = "name can't be numeric."
-    # # Now the user entered a valid name
-    # else:
-    #     response["MESSAGE"] = f"Welcome {name} to our awesome platform!!"
-
-    # # Return the response in json format
-    # return jsonify(response)
-
+@app.route("/")
+@cross_origin()
+def location():
+    conn = psycopg2.connect(conn_string)
+    cur = conn.cursor()
+    cur.execute("""SELECT * FROM potholes""")
+    cur.close()
+    locationrows= cur.fetchall()
+    print(locationrows)
+    print(locationrows)
+    new_dict = {}
+    for row in results:
+        new_dict[row.location] = row.category
+    print(new_dict)
+    return jsonify({"location":locationrows})
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, port=5001)
