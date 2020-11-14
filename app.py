@@ -5,49 +5,43 @@ import pandas as pd
 import os 
 from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS, cross_origin
+
+
 app = Flask(__name__, static_url_path="",static_folder="")
 cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
-conn_string = os.environ['DATABASE_URL']
-@app.route("/home")
-def home():
-    return app.send_static_file('index.html')
-rows = cur.fetchall()
-print(rows)
-print("\nShow me the databases:\n")
-for row in rows:
-    print("   ", row[9])
-conn = create_engine(conn_string)
-pd.read_csv("Resources/Census_clean/clean_census_2011.csv").to_sql("",conn)
-pd.read_csv("Resources/Census_clean/clean_census_2012.csv").to_sql("potholes",conn)
-pd.read_csv("Resources/Census_clean/clean_census_2013.csv").to_sql("potholes",conn)
-pd.read_csv("Resources/Census_clean/clean_census_20114.csv").to_sql("potholes",conn)
-pd.read_csv("Resources/Census_clean/clean_census_2015.csv").to_sql("potholes",conn)
-pd.read_csv("Resources/Medicare_clean/clean_pc_state_rates_2011.csv").to_sql("potholes",conn)
-pd.read_csv("Resources/Medicare_clean/clean_pc_state_rates_2012.csv").to_sql("potholes",conn)
-pd.read_csv("Resources/Medicare_clean/clean_pc_state_rates_2013.csv").to_sql("potholes",conn)
-pd.read_csv("Resources/Medicare_clean/clean_pc_state_rates_2014.csv").to_sql("potholes",conn)
-pd.read_csv("Resources/Medicare_clean/clean_pc_state_rates_2015.csv").to_sql("potholes",conn)
-pd.read_csv("Resources/Pollution_clean_2011.csv").to_sql("potholes",conn)
-pd.read_csv("Resources/Pollution_clean_2012.csv").to_sql("potholes",conn)
-pd.read_csv("Resources/Pollution_clean_2013.csv").to_sql("potholes",conn)
-pd.read_csv("Resources/Pollution_clean_2014.csv").to_sql("potholes",conn)
-pd.read_csv("Resources/Pollution_clean_2015.csv").to_sql("potholes",conn)
-
+try:
+    DATABASE_URL = os.environ['DATABASE_URL']
+except KeyError:
+    DATABASE_URL = DATABASE_URI = 'postgres+psycopg2://postgres:Darius02@localhost:5432/FinalProjectDB'
+    app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 @app.route("/")
+def index():
+    return app.send_static_file('index.html')
+print (DATABASE_URL)
+conn = create_engine(DATABASE_URL).connect()
+# pd.read_csv("Resources/Census_clean/clean_census_2011.csv").to_sql("clean_census_2011",conn)
+# pd.read_csv("Resources/Census_clean/clean_census_2012.csv").to_sql("clean_census_2012",conn)
+# pd.read_csv("Resources/Census_clean/clean_census_2013.csv").to_sql("clean_census_2013",conn)
+# pd.read_csv("Resources/Census_clean/clean_census_2014.csv").to_sql("clean_census_2014",conn)
+# pd.read_csv("Resources/Census_clean/clean_census_2015.csv").to_sql("clean_census_2015",conn)
+# pd.read_csv("Resources/Medicare_clean/clean_pc_state_rates_2011.csv").to_sql("clean_pc_state_rates_2011",conn)
+# pd.read_csv("Resources/Medicare_clean/clean_pc_state_rates_2012.csv").to_sql("clean_pc_state_rates_2012",conn)
+# pd.read_csv("Resources/Medicare_clean/clean_pc_state_rates_2013.csv").to_sql("clean_pc_state_rates_2013",conn)
+# pd.read_csv("Resources/Medicare_clean/clean_pc_state_rates_2014.csv").to_sql("clean_pc_state_rates_2014",conn)
+# pd.read_csv("Resources/Medicare_clean/clean_pc_state_rates_2015.csv").to_sql("clean_pc_state_rates_2015",conn)
+# pd.read_csv("Resources/Tableau_clean/Pollution__2010.csv").to_sql("Pollution__2010",conn)
+# pd.read_csv("Resources/Tableau_clean/Pollution__2011.csv").to_sql("Pollution__2011",conn)
+# pd.read_csv("Resources/Tableau_clean/Pollution__2012.csv").to_sql("Pollution__2012",conn)
+# pd.read_csv("Resources/Tableau_clean/Pollution__2013.csv").to_sql("Pollution__2013",conn)
+# pd.read_csv("Resources/Tableau_clean/Pollution__2014.csv").to_sql("Pollution__2014",conn)
+# pd.read_csv("Resources/Tableau_clean/Pollution__2015.csv").to_sql("Pollution__2015",conn)
+
+@app.route("/<year>")
 @cross_origin()
-def location():
-    conn = psycopg2.connect(conn_string)
-    cur = conn.cursor()
-    cur.execute("""SELECT * FROM potholes""")
-    cur.close()
-    locationrows= cur.fetchall()
-    print(locationrows)
-    print(locationrows)
-    new_dict = {}
-    for row in results:
-        new_dict[row.location] = row.category
-    print(new_dict)
-    return jsonify({"location":locationrows})
+def location(year):
+    query = f'SELECT * FROM clean_census_{year}'
+    df = pd.read_sql(query, conn)
+    return df.to_json()
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
