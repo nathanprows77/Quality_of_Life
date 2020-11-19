@@ -16,108 +16,63 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
 		crossorigin="anonymous"></script>
 	
-	<link rel="stylesheet" type="text/css" href="static/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="static/style.css">
+	<link rel="stylesheet" type="text/css" href="static/bootstrap.css">
+	
 
     
 </head>
 <body>
 
 <div class="container">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 		<a class="navbar-brand" href="#">Explore the Data:</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-		  <span class="navbar-toggler-icon"></span>
+		<span class="navbar-toggler-icon"></span>
 		</button>
-	  
 		<div class="collapse navbar-collapse" id="navbarColor02">
-		  <ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-			  <a class="nav-link" href="index.html">Home
+		<ul class="navbar-nav mr-auto">
+		<li class="nav-item active">
+			<a class="nav-link" href="#">Home
 				<span class="sr-only">(current)</span>
-			  </a>
+			</a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link" href="Map.html">Map It Out</a>
+			<a class="nav-link" href="static/Map.html">Map It Out</a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link" href="Viz1.html">Viz1</a>
+			<a class="nav-link" href="Viz1.html">Viz1</a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link" href="Viz2.html">Viz2</a>
+			<a class="nav-link" href="Viz2.html">Viz2</a>
 			</li>
 			<li class="nav-item dropdown">
-			  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-			  <div class="dropdown-menu">
-				<a class="dropdown-item" href="#">Action</a>
-				<a class="dropdown-item" href="#">Another action</a>
-				<a class="dropdown-item" href="#">Something else here</a>
-				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="#">Separated link</a>
-			  </div>
+				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+					<div class="dropdown-menu">
+					<a class="dropdown-item" href="#">Action</a>
+					<a class="dropdown-item" href="#">Another action</a>
+					<a class="dropdown-item" href="#">Something else here</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Separated link</a>
+					</div>
 			</li>
-		  </ul>
+		</ul>
 		</div>
-	  </nav>
-    <div class="container h-100 d-flex h-100 flex-column">
-        <div class="row py-3 flex-fill d-flex">
-            <div class="col-md-3 order-2 align-self-end border" id="sidebar-large">
-				<div class="sticky top">
-		<div class="row">
-		<center><h3>Visualizations</h3></center>
-		</div>
-		<div class="row">
-            	<a href="MaxTemp.html">
-           		<figure>
-               		 <img src="https://github.com/veronicahamilton88/web-design-challenge/blob/master/Assets/Fig1.png?raw=true" alt="Max Temp" width=250px>
-                		<figcaption>Fig.1 - Latitude vs Max Temp</figcaption>
-              		</figure>
-              	</a>
-          	</div>
+	</nav>
 
-   		<div class="row">
-            	<a href="Humidity.html">
-           		<figure>
-                	<img src="https://github.com/veronicahamilton88/web-design-challenge/blob/master/Assets/Fig2.png?raw=true" alt="Humidity" width=250px>
-                		<figcaption>Fig.2 - Latitude vs Humidity</figcaption>
-              		</figure>
-		</a>
-          	</div>
-    		<div class="row">
-            	<a href="Cloudiness.html">
-            		<figure>
-                	<img src="https://github.com/veronicahamilton88/web-design-challenge/blob/master/Assets/Fig3.png?raw=true" alt="Cloudiness" width=250px>
-                	<figcaption>Fig.2 - Latitude vs Cloudiness</figcaption>
-              		</figure>
-		</a>
-          	</div>
-    		<div class="row">
-            	<a href="Windspeed.html">
-            		<figure>
-                	<img src="https://github.com/veronicahamilton88/web-design-challenge/blob/master/Assets/Fig4.png?raw=true" alt="Windspeed" width=250px>
-                	<figcaption>Fig.2 - Latitude vs Windspeed</figcaption>
-              		</figure>
-            	</a>
-          </div>     
-                </div>
-            </div>
-            <div class="col border" id="main">
- 		 <div class="row">
-   			 <div class="col-md-12">
-   				 <h1>How Does Geographical Location Affect Quality of Life?</h1>
-   				 <br><br>
-    			 </div>
- 		 </div>
-  		<div class="row">      
-    			<div class="col-md-12">
+	<div class="row">		
+		<div class="col-md-9">
+			<BR>
+			<h1>How Does Geographical Location Affect Quality of Life?</h1>
+			<BR>
 			<img src="Assets/map.jpg" width=350 align="left"><BR>
 				<h2>Project Summary:</h2>
-       				<p>
-						   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</p>
-						<br><br><br><br>
-						<center>
-					<p class="text-info">3 Key Factors Define Quality of Life:</p>
+				<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</p>
+				<br><br><br><br>
+				<center>
+				<p class="text-info">3 Key Factors Define Quality of Life:</p>
 					<dl>
 						<dt>Income</dt>
 						<dd>- Do you make enough money to afford life essentials?</dd>
@@ -125,12 +80,46 @@
 						<dd>- Do you use more preventative or emergency care?</dd>
 						<dt>Pollution</dt>
 						<dd>- Is where you live very polluted?</dd>
-					  </dl>
-					</center>
-					  </div>
-      			</div>
-  		  </div>
-    	</div>
+					</dl>
+				</center>
+		</div>
+		<div class="col-md-3">
+			<div class="row">
+				<CENTER>
+				<h3><BR><BR> Visualizations</h3>
+				</CENTER>
+				<a href="MaxTemp.html">
+					<figure>
+						<img src="https://github.com/veronicahamilton88/web-design-challenge/blob/master/Assets/Fig1.png?raw=true" alt="Max Temp" width=250px>
+						<figcaption>Fig.1 - Latitude vs Max Temp</figcaption>
+					</figure>
+				</a>
+			</div>
+			<div class="row">
+				<a href="Humidity.html">
+					<figure>
+						<img src="https://github.com/veronicahamilton88/web-design-challenge/blob/master/Assets/Fig2.png?raw=true" alt="Humidity" width=250px>
+						<figcaption>Fig.2 - Latitude vs Humidity</figcaption>
+					</figure>
+				</a>
+			</div>
+			<div class="row">
+				<a href="Cloudiness.html">
+					<figure>
+						<img src="https://github.com/veronicahamilton88/web-design-challenge/blob/master/Assets/Fig3.png?raw=true" alt="Cloudiness" width=250px>
+						<figcaption>Fig.2 - Latitude vs Cloudiness</figcaption>
+					</figure>
+				</a>
+			</div>
+			<div class="row">
+				<a href="Windspeed.html">
+					<figure>
+						<img src="https://github.com/veronicahamilton88/web-design-challenge/blob/master/Assets/Fig4.png?raw=true" alt="Windspeed" width=250px>
+						<figcaption>Fig.2 - Latitude vs Windspeed</figcaption>
+					</figure>
+				</a>
+			</div>    
+			</div> 
     </div>
 </div>
 
