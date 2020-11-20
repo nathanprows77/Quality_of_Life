@@ -26,5 +26,9 @@ h3{
 
 
 .row{
-    background-color: white;
+    background-color: #303030;
+}
+
+#main{
+    background-color: #303030;
 }
