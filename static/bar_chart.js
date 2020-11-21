@@ -50,7 +50,7 @@ console.log(year)
 
 // Load data from hours-of-tv-watched.csv
 d3.json("https://quality-of-life-by-state.herokuapp.com/census/"+year).then(function(censusData) {
-
+console.log(censusData)
   // console.log(censusData.povertyrate);
   var poverty = censusData.povertyrate
 
