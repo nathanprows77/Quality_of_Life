@@ -106,8 +106,6 @@ d3.json("https://quality-of-life-by-state.herokuapp.com/census/"+year).then(func
   // Create one SVG rectangle per piece of tvData
   // Use the linear and band scales to position each rectangle within the chart
   chartGroup.selectAll(".bar")
-    .exit()
-    .remove()
     .data(poverty_array)
     .enter()
     .append("rect")
