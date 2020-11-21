@@ -54,7 +54,7 @@ console.log(censusData)
   // console.log(censusData.povertyrate);
   var poverty = censusData.PovertyRate
 
-  var name = censusData.State
+  var name = censusData.Name
 
   var poverty_array = povertyDictionary(poverty,name)
 
