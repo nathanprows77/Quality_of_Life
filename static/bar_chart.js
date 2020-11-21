@@ -49,7 +49,7 @@ console.log(year)
 // var year = selector.options[selector.selectedIndex].value.toLowerCase()
 
 // Load data from hours-of-tv-watched.csv
-d3.json("https://quality-of-life-by-state.herokuapp.com//census/"+year).then(function(censusData) {
+d3.json("https://quality-of-life-by-state.herokuapp.com/census/"+year).then(function(censusData) {
 
   // console.log(censusData.povertyrate);
   var poverty = censusData.povertyrate
