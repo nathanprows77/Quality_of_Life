@@ -25,7 +25,7 @@ conn = create_engine(DATABASE_URL).connect()
 @app.route("/census/<year>")
 @cross_origin()
 def census(year):
-    query = f'SELECT * FROM census_clean_{year}'
+    query = f'SELECT * FROM clean_census_{year}'
     df = pd.read_sql(query, conn)
     return df.to_json()
 
