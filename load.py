@@ -1,8 +1,8 @@
 import os
-import psycopg2
+from sqlalchemy import create_engine
 import pandas as pd
 DATABASE_URL = os.environ['DATABASE_URL']
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+conn = create_engine(DATABASE_URL).connect()
 pd.read_csv("Resources/Census_clean/clean_census_2011.csv").to_sql("clean_census_2011",conn)
 pd.read_csv("Resources/Census_clean/clean_census_2012.csv").to_sql("clean_census_2012",conn)
 pd.read_csv("Resources/Census_clean/clean_census_2013.csv").to_sql("clean_census_2013",conn)
