@@ -1,7 +1,7 @@
 
 
 
-d3.selectAll('#census_year')
+d3.selectAll('#pollution_year')
 .on('change', selectYear)
 
 function selectYear() {
@@ -23,40 +23,44 @@ left: 50
 var chartWidth = svgWidth - chartMargin.left - chartMargin.right;
 var chartHeight = svgHeight - chartMargin.top - chartMargin.bottom;
 
-d3.selectAll("#barPlot").remove()
+d3.selectAll("#Plot").remove()
 // Select body, append SVG area to it, and set the dimensions
-var svg = d3.select("#bar-plot")
+var svg = d3.select("#bubble-plot")
 .append("svg")
 .attr("height", svgHeight)
 .attr("width", svgWidth)
-.attr("id", "barPlot")
+.attr("id", "Plot")
 
 
 // Append a group to the SVG area and shift ('translate') it to the right and to the bottom
 var chartGroup = svg.append("g")
 .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
 
-  var selector = document.getElementById('census_year')
+  var selector = document.getElementById('pollution_year')
   var year = selector.options[selector.selectedIndex].value
   
   
 
 
 
-console.log(year)
+// console.log(AQI)
 // var link = "http://127.0.0.1:5001/census/";
 // var selector = document.getElementById('census_year')
 // var year = selector.options[selector.selectedIndex].value.toLowerCase()
 
 // Load data from hours-of-tv-watched.csv
-d3.json("http://127.0.0.1:5001/census/"+year).then(function(censusData) {
+d3.json("http://127.0.0.1:5001/pollution/"+year).then(function(pollutionData) {
 
+console.log(pollutionData);
 // console.log(censusData.povertyrate);
-var poverty = censusData.povertyrate
+var AQI = pollutionData.median_AQI
+// var unhealthyDays = pollutionData.unhealthy_days
+// var veryUnhealthyDays = pollutionData.very_unhealthy_days
+// var badDays = (hazardousDays + unhealthyDays + veryUnhealthyDays)
 
-var name = censusData.name
+var state = pollutionData.state
 
-var poverty_array = povertyDictionary(poverty,name)
+var pollution_array = pollutionDictionary(AQI,state)
 
 // console.log(poverty_array)
 
@@ -71,14 +75,14 @@ var poverty_array = povertyDictionary(poverty,name)
 
 // Configure a band scale for the horizontal axis with a padding of 0.1 (10%)
   var xBandScale = d3.scaleBand()
-  .domain(poverty_array.map(d => d.name))
+  .domain(pollution_array.map(d => d.state))
   .range([0, chartWidth])
   .padding(0.1);
 
 
 // Create a linear scale for the vertical axis.
 var yLinearScale = d3.scaleLinear()
-  .domain([0, d3.max(poverty_array, d => d.povertyrate)])
+  .domain([0, d3.max(pollution_array, d => d.AQI)])
   .range([chartHeight, 0]);
 
 // Create two new functions passing our scales in as arguments
@@ -108,28 +112,29 @@ chartGroup.append("g")
 chartGroup.selectAll(".bar")
   .exit()
   .remove()
-  .data(poverty_array)
+  .data(pollution_array)
   .enter()
   .append("rect")
   .attr("class", "bar")
-  .attr("x", d => xBandScale(d.name))
-  .attr("y", d => yLinearScale(d.povertyrate))
+  .attr("x", d => xBandScale(d.state))
+  .attr("y", d => yLinearScale(d.AQI))
   .attr("width", xBandScale.bandwidth())
-  .attr("height", d => chartHeight - yLinearScale(d.povertyrate));
+  .attr("height", d => chartHeight - yLinearScale(d.AQI));
 
 }).catch(function(error) {
 console.log(error);
 })};
 
 
-function povertyDictionary(poverty,name) {
-var poverty_array = []
-for (let x in poverty){
+function pollutionDictionary(median_AQI,state) {
+var pollution_array = []
+for (let x in median_AQI){
   // console.log(poverty[x])
-  var poverty_dictionary = {}
+  var pollution_dictionary = {}
   // .povertyrate = +d.povertyrate
-  poverty_dictionary["povertyrate"] = parseFloat(poverty[x])
-  poverty_dictionary["name"] = name[x]
-  poverty_array.push(poverty_dictionary)
+  pollution_dictionary["median_AQI"] = parseFloat(median_AQI[x])
+  pollution_dictionary["state"] = state[x]
+  pollution_array.push(pollution_dictionary)
 }
-return poverty_array}
+return pollution_array
+console.log(pollution_array)}
