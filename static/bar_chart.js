@@ -106,6 +106,8 @@ console.log(censusData)
   // Create one SVG rectangle per piece of tvData
   // Use the linear and band scales to position each rectangle within the chart
   chartGroup.selectAll(".bar")
+    .exit()
+    .remove()
     .data(poverty_array)
     .enter()
     .append("rect")
