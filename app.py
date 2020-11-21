@@ -5,6 +5,7 @@ import pandas as pd
 import os 
 from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS, cross_origin
+import config
 
 
 app = Flask(__name__, static_url_path="",static_folder="")

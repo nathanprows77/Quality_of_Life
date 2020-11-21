@@ -117,6 +117,14 @@ d3.json("http://127.0.0.1:5001/census/"+year).then(function(censusData) {
     .attr("width", xBandScale.bandwidth())
     .attr("height", d => chartHeight - yLinearScale(d.povertyrate));
 
+    chartGroup.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - chartMargin.left)
+    .attr("x", 0 - (chartHeight / 2))
+    .attr("dy", "1em")
+    .attr("class", "aText")
+    .text("Population In Poverty (%)");
+
 }).catch(function(error) {
   console.log(error);
 })};

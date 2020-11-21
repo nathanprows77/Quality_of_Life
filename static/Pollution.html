@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poverty Rates By State</title>
+    <title>Pollution</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
@@ -18,11 +18,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
-    
+
 
         <link rel="stylesheet" type="text/css" href="bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="stylesheet" type="text/css" href="chart_style.css">
 </head>
 <body>
 
@@ -68,26 +66,18 @@
 		</div>
 	</nav>
 
-          <BR>
-            <h1>Poverty</h1>
-            <H4>
-              Use the drop-down menu below to select the year you want to see. 
-            </H4>
-            <BR>
-          <label for="census">Choose a Year:</label>
-            <select name="census_year" id="census_year">
-            <option>Year</option>
-            <option value="2011">2011</option>
-            <option value="2012">2012</option>
-            <option value="2013">2013</option>
-            <option value="2014">2014</option>
-            <option value="2015">2015</option>
-            </select>
 
-          <script src="http://d3js.org/d3.v5.min.js"></script>
-          <script src="bar_chart.js"></script>
-          <div id="bar-plot"></div>
+
+<div class="row">
+  <div class="col-lg-12" id="main">
+    <h1>How is the air quality where you live?</h1>
+      <h4>The graph below shows the average number of days recorded for each measured air pollutant.<BR> Explore the data by filtering by year or pollutant type.</h4><BR>
+        <div class='tableauPlaceholder' id='viz1605920758365' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Qu&#47;QualityofLife-AirPollutantAnalysis&#47;AirPollutantDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='QualityofLife-AirPollutantAnalysis&#47;AirPollutantDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Qu&#47;QualityofLife-AirPollutantAnalysis&#47;AirPollutantDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1605920758365');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
 </div>
-
+  </div>
+    	</div>
+    </div>
+</div>
+</div>
 </body>
 </html>
