@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geographical Location vs Quality of Life</title>
+    <title>Latitude vs Temperature</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -14,53 +14,34 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-		crossorigin="anonymous"></script>
-	
-	<link rel="stylesheet" type="text/css" href="static/style.css">
-	<link rel="stylesheet" type="text/css" href="static/bootstrap.css">
-	
+        crossorigin="anonymous"></script>
 
-    
+		<link rel="stylesheet" type="text/css" href="bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="ML_style.css">
 </head>
 <body>
 
 <div class="container">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		
 		Placeholder
 	</nav>
-
-	<div class="row">		
-		<div class="col-md-8">
-			<BR>
-			<h1>How Does Geographical Location Affect Quality of Life?</h1>
-			<BR>
-			<img src="Assets/map.jpg" width=350 align="left">
-				<h2>Project Summary:</h2>
-				<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</p>
-				<br><br><br><br>
-				<center>
-				<p class="text-info">3 Key Factors Define Quality of Life:</p>
-					<dl>
-						<dt>Income</dt>
-						<dd>- Do you make enough money to afford life essentials?</dd>
-						<dt>Healthcare Access</dt>
-						<dd>- Do you use more preventative or emergency care?</dd>
-						<dt>Pollution</dt>
-						<dd>- Is where you live very polluted?</dd>
-					</dl>
-				</center>
+		<div class="row">		
+			<div class="col-lg-12">
+				<H1>Machine Learning</H1>
+				<img src="../Assets/Linear_Regression_Model.png" alt="hist" width=500px align=left><BR><BR><BR><BR><BR>
+				<H5>In this project, we attempted to use machine learning to predict factors related to quality of life. These factors included household income, poverty rate, pollution data, and Medicare data. With the Medicare data, we focused on preventative care, such as participation in Part B, ambulatory visits, and diagnostic tests.
+					We conducted our project using a linear model.<BR><BR><BR><BR><BR>
+				<img src="../Assets/Linear_Regression_Model_validation.png" alt="hist" width=500px align=right><BR><BR><BR><BR>
+					Over the course of the project we tested various output variables and features, to see which would enable us to best predict the quality of a person's life.
+					Output variables were chosen as indications of quality of life - for example, we looked at participation in Medicare Part B. 
+					We wanted to see if we could use factors such as household incomes to predict Part B participation. <BR><BR><BR><BR><BR><BR>
+				<img src="../Assets/Linear_Regression_Model_validation_hist.png" alt="hist" width=500px align=left><BR><BR>
+					<BR><BR><BR>
+					Medicare Part B is optional, and costs a monthly premium when used. It covers preventative care, such as doctor visits and diagnostic tests. Compared to Part A, which is automatic, costs no extra money out of pocket, and is mainly for emergencies, our theory was that a higher participation in Part B would indicate a person's overall quality of life is higher, due to being able to afford it, and being able to prevent medical issues.
+				</H5>
+			</div>
 		</div>
-    </div>
 </div>
 
 </body>
-<footer>
-	<center>
-	<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-	</center>
-</footer>
-
 </html>

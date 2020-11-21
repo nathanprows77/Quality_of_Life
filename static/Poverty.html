@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comparisons</title>
+    <title>Poverty Rates By State</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
@@ -18,7 +18,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
-
+    
 
         <link rel="stylesheet" type="text/css" href="bootstrap.css">
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -27,14 +27,28 @@
 <body>
 
 <div class="container">
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 placeholder
-          </nav>
+  </nav>
+          <BR>
+            <h1>Poverty</h1>
+            <H4>
+              Use the drop-down menu below to select the year you want to see. 
+            </H4>
+            <BR>
+          <label for="census">Choose a Year:</label>
+            <select name="census_year" id="census_year">
+            <option>Year</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            </select>
 
-  </div>
-    	</div>
-    </div>
+          <script src="http://d3js.org/d3.v5.min.js"></script>
+          <script src="bar_chart.js"></script>
+          <div id="bar-plot"></div>
 </div>
 
 </body>
