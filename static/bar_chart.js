@@ -52,9 +52,9 @@ console.log(year)
 d3.json("https://quality-of-life-by-state.herokuapp.com/census/"+year).then(function(censusData) {
 console.log(censusData)
   // console.log(censusData.povertyrate);
-  var poverty = censusData.povertyrate
+  var poverty = censusData.PovertyRate
 
-  var name = censusData.name
+  var name = censusData.State
 
   var poverty_array = povertyDictionary(poverty,name)
 
